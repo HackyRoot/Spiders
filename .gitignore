@@ -1,3 +1,7 @@
-.idea
+fragrancedirect/.idea
 build
-project.egg-info
+/fragrancedirect/project.egg-info/
+*.pyc
+*.csv
+*.json
+**/__pycache__
