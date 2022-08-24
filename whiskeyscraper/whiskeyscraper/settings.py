@@ -1,4 +1,4 @@
-# Scrapy settings for fragrancedirect project
+# Scrapy settings for whiskeyscraper project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -7,14 +7,14 @@
 #     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'fragrancedirect'
+BOT_NAME = 'whiskeyscraper'
 
-SPIDER_MODULES = ['fragrancedirect.spiders']
-NEWSPIDER_MODULE = 'fragrancedirect.spiders'
+SPIDER_MODULES = ['whiskeyscraper.spiders']
+NEWSPIDER_MODULE = 'whiskeyscraper.spiders'
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-#USER_AGENT = 'fragrancedirect (+http://www.yourdomain.com)'
+#USER_AGENT = 'whiskeyscraper (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -45,13 +45,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'fragrancedirect.middlewares.FragrancedirectSpiderMiddleware': 543,
+#    'whiskeyscraper.middlewares.WhiskeyscraperSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'fragrancedirect.middlewares.FragrancedirectDownloaderMiddleware': 543,
+#    'whiskeyscraper.middlewares.WhiskeyscraperDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -63,7 +63,7 @@ ROBOTSTXT_OBEY = True
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 #ITEM_PIPELINES = {
-#    'fragrancedirect.pipelines.FragrancedirectPipeline': 300,
+#    'whiskeyscraper.pipelines.WhiskeyscraperPipeline': 300,
 #}
 
 # Enable and configure the AutoThrottle extension (disabled by default)

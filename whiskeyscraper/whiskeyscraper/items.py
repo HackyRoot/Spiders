@@ -6,7 +6,7 @@
 import scrapy
 
 
-class FragrancedirectItem(scrapy.Item):
+class WhiskeyscraperItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass

@@ -1,4 +1,4 @@
-project: 616726
-requirements:
-  file: requirements.txt
-stack: scrapy:2.5
+projects:
+  default:
+    id: 616726
+stack: scrapy:2.6
