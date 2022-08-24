@@ -18,4 +18,4 @@ class FragrancedirectItem(scrapy.Item):
     product_name = scrapy.Field()
     product_url = scrapy.Field()
     product_current_price = scrapy.Field()
-    product_save = scrapy.Field(input_processor = MapCompose(remove_text), output_processor=TakeFirst)
+    product_save = scrapy.Field()
