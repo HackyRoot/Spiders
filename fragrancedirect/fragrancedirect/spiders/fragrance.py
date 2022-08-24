@@ -21,7 +21,7 @@ class FragrancedirectSpider(scrapy.Spider):
                 item = FragrancedirectItem()
 
                 item['id'] = product.css('.list-item::attr(data-object-id)').get()
-                item['product_name'] = product.css('.list-item::attr(data-product-name)').get()
+                item['product_name'] = product.css('strong::text').get() + product.css('.list-item a[data-ieb-action="product_click"]::text').getall()[3].strip()
                 item['product_url'] = product.css('.list-item-image a::attr(href)').get()
                 item['product_current_price'] = product.css('.list-item-price::text').get()
                 item['product_save'] = product.css('.list-item-save::text').re('\£\d[^\s]+')
