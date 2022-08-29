@@ -9,7 +9,7 @@ class AmazonbooksSpider(scrapy.Spider):
     start_urls = ['https://www.amazon.co.uk/gp/bestsellers/books']
 
     crawlera_enabled = True
-    crawlera_apikey = '28661514a98c47fa8054ccbc6d21d48b'
+    crawlera_apikey = 'API_KEY'
 
     def parse(self, response):
         books = response.css('.a-column.a-span12.a-text-center._cDEzb_grid-column_2hIsc')
