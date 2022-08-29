@@ -2,6 +2,7 @@ import scrapy
 from scrapy.http import HtmlResponse
 from amazonuk.items import AmazonukItem
 from scrapy.loader import ItemLoader
+from constants import Crawlera_API_Key
 
 class AmazonbooksSpider(scrapy.Spider):
     name = 'amazonbooks'
@@ -9,7 +10,7 @@ class AmazonbooksSpider(scrapy.Spider):
     start_urls = ['https://www.amazon.co.uk/gp/bestsellers/books']
 
     crawlera_enabled = True
-    crawlera_apikey = '28661514a98c47fa8054ccbc6d21d48b'
+    crawlera_apikey = Crawlera_API_Key
 
     def parse(self, response):
         books = response.css('.a-column.a-span12.a-text-center._cDEzb_grid-column_2hIsc')
