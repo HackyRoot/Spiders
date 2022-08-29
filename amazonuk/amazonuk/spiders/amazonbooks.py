@@ -2,15 +2,16 @@ import scrapy
 from scrapy.http import HtmlResponse
 from amazonuk.items import AmazonukItem
 from scrapy.loader import ItemLoader
-from constants import Crawlera_API_Key
+import os
+
 
 class AmazonbooksSpider(scrapy.Spider):
     name = 'amazonbooks'
     allowed_domains = ['amazon.co.uk']
     start_urls = ['https://www.amazon.co.uk/gp/bestsellers/books']
 
-    crawlera_enabled = True
-    crawlera_apikey = Crawlera_API_Key
+    zyte_smartproxy_enabled = True
+    zyte_smartproxy_apikey = '819580e1d3324ab39ca46dafd7cb09df'
 
     def parse(self, response):
         books = response.css('.a-column.a-span12.a-text-center._cDEzb_grid-column_2hIsc')

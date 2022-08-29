@@ -52,10 +52,11 @@ ROBOTSTXT_OBEY = True
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
     'amazonuk.middlewares.AmazonukDownloaderMiddleware': 543,
-    'scrapy_crawlera.CrawleraMiddleware': 610,
+    'scrapy_zyte_smartproxy.ZyteSmartProxyMiddleware': 610,
 }
 
-CRAWLERA_URL = 'http://28661514a98c47fa8054ccbc6d21d48b:@proxy.crawlera.com:8011/'
+
+ZYTE_SMARTPROXY_URL = 'http://28661514a98c47fa8054ccbc6d21d48b:@proxy.crawlera.com:8011/'
 
 # Enable or disable extensions
 # See https://docs.scrapy.org/en/latest/topics/extensions.html
