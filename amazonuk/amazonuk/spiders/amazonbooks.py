@@ -29,16 +29,17 @@ class AmazonbooksSpider(scrapy.Spider):
     def parse_item(self, response):
         rank = response.meta.get('rank')
         id = response.meta.get('id')
+        authors = response.css(
+            '#bylineInfo_feature_div #bylineInfo span.author.notFaded a.a-link-normal::text').getall()[2:]
 
         book_item = ItemLoader(item=AmazonukItem(), selector=response)
-        book_item.add_css('book_title', '.a-size-extra-large')
-        book_item.add_css('author','.a-link-normal.contributorNameID')
+
+        book_item.add_value('book_url', response.url)
+        book_item.add_value('author', authors)
         book_item.add_value('rank', rank)
+        book_item.add_value('book_id', id)
+        book_item.add_css('book_title', '.a-size-extra-large')
         book_item.add_css('price', '.a-size-base.a-color-price.a-color-price')
         book_item.add_css('cover', '.a-dynamic-image.image-stretch-vertical.frontImage::attr(src)')
-        book_item.add_value('book_url', response.url)
-        book_item.add_value('book_id', id)
 
         yield book_item.load_item()
-
-

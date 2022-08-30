@@ -16,8 +16,9 @@ class AmazonukItem(scrapy.Item):
     # define the fields for your item here like:
     rank = scrapy.Field(input_processor=MapCompose(remove_tags, remove_special_char), output_processor=TakeFirst())
     book_title = scrapy.Field(input_processor=MapCompose(remove_tags), output_processor=TakeFirst())
-    author = scrapy.Field(input_processor=MapCompose(remove_tags), output_processor=TakeFirst())
+    author = scrapy.Field()
     price = scrapy.Field(input_processor=MapCompose(remove_tags), outpur_processor=TakeFirst())
     cover = scrapy.Field()
     book_url = scrapy.Field()
     book_id = scrapy.Field(input_processor=MapCompose(remove_tags), outpur_processor=TakeFirst())
+
