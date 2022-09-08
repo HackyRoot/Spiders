@@ -8,5 +8,7 @@ import scrapy
 
 class MediamarktItem(scrapy.Item):
     # define the fields for your item here like:
-    # name = scrapy.Field()
-    pass
+    product_name = scrapy.Field()
+    product_id = scrapy.Field()
+    product_price = scrapy.Field()
+    product_url = scrapy.Field()

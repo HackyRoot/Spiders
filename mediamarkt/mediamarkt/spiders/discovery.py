@@ -1,6 +1,8 @@
 import scrapy
 import re
 import json, jmespath
+from mediamarkt.items import MediamarktItem
+from scrapy.loader import ItemLoader
 
 class DiscoverySpider(scrapy.Spider):
     name = 'discovery'
@@ -33,7 +35,13 @@ class DiscoverySpider(scrapy.Spider):
                 for category in subCategories:
                     for product_category in category[0]:
                         product_category_url = product_category['url']
-                        yield scrapy.Request(response.urljoin(product_category_url), callback=self.parse_shelf)
+                        yield scrapy.Request(url=response.urljoin(product_category_url),
+                                             callback=self.parse_shelf,
+                                             meta={
+                                                 "zyte_api": {
+                                                     "browserHtml": True,
+                                                 }
+                                             })
 
 
             else:
@@ -56,10 +64,20 @@ class DiscoverySpider(scrapy.Spider):
                 product_ids.append(product_data_key.split(":")[1])
                 print(product_data_key.split(":")[1])
 
+        product_item = ItemLoader(item=MediamarktItem(), selector=product_data)
+
         for product in product_ids:
-            print(product_data['GraphqlProduct:' + product]['id'])
-            print(product_data['GraphqlProduct:' + product]['title'])
-            print(product_data['GraphqlPrice:' + product]['productId'])
+            product_id = product_data['GraphqlProduct:' + product]['id']
+            product_name = product_data['GraphqlProduct:' + product]['title']
+            product_price = product_data['GraphqlPrice:' + product]['productId']
+            product_url = product_data['GraphqlProduct:' + product]['url']
+
+            product_item.add_value('product_name', product_name)
+            product_item.add_value('product_url', product_url)
+            product_item.add_value('product_id', product_id)
+            product_item.add_value('product_price', product_price)
+
+            yield product_item.load_item()
 
         # next_page_url = response.css('')
         # yield scrapy.Request(
